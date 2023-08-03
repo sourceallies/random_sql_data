@@ -13,9 +13,9 @@ ENV POSTGRES_USER=admin
 ENV POSTGRES_PASSWORD=pass
 ENV PGDATA=/data
 
-RUN ["/usr/local/bin/docker-entrypoint.sh", "postgres"]
+RUN ["/usr/local/bin/docker-entrypoint.sh", "postgres", "-c",  "log_statement=none"]
 
 # final stage
-FROM postgres:11-alpine
+FROM postgres:14.7-alpine3.17
 
 COPY --from=dumper /data $PGDATA

@@ -1,6 +1,6 @@
 drop table if exists customers;
 drop sequence if exists customers_id;
-create sequence customers_id start 20001;
+create sequence customers_id start 2001;
 create table customers (
     id int not null default nextval('customers_id') primary key
     , name varchar(150)
@@ -15,7 +15,7 @@ create sequence products_id start 1001;
 create table products (
     id int not null default nextval('products_id') primary key
     , name varchar(150)
-    , description varchar (5000)
+    , description varchar (1000)
 );
 
 drop table if exists stores;
@@ -30,7 +30,7 @@ create table stores (
 
 drop table if exists orders;
 drop sequence if exists orders_id;
-create sequence orders_id start 300001;
+create sequence orders_id start 30001;
 create table orders (
     id int not null default nextval('orders_id') primary key
     , ordered_by_customer int not null references customers (id)

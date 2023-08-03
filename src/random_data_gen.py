@@ -1,8 +1,8 @@
 number_of_products = 1000
 number_of_stores = 200
-number_of_customers = 20000
-customer_desc_max_size = 5000
-number_of_orders = 300000
+number_of_customers = 2000
+customer_desc_max_size = 1000
+number_of_orders = 30000
 
 SQL_TABLES = f"""\
 drop table if exists customers;
@@ -109,7 +109,7 @@ class Order:
     order_timestamp: str
 
     def insert_line(self) -> str:
-        return f"insert into customers (id, ordered_by_customer, ordered_product, order_placed_at_store, order_timestamp) values ({self.id}, {self.ordered_by_customer}, {self.ordered_product}, {self.order_placed_at_store}, '{self.order_timestamp}');"
+        return f"insert into orders (id, ordered_by_customer, ordered_product, order_placed_at_store, order_timestamp) values ({self.id}, {self.ordered_by_customer}, {self.ordered_product}, {self.order_placed_at_store}, '{self.order_timestamp}');"
 
 
 from io import TextIOWrapper
